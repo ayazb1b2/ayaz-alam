@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Bio Data</title>
+    <style>
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background-color: #f0f8ff;
+            color: #333333;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background-color: #ffffff;
+            padding: 20px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            font-size: 0.85em; /* Reduced font size */
+        }
+        h1, h2 {
+            color: #2e8b57;
+            border-bottom: 2px solid #2e8b57;
+            padding-bottom: 5px;
+        }
+        h1 {
+            font-size: 2em; /* Reduced font size */
+        }
+        h2 {
+            font-size: 1.5em; /* Reduced font size */
+        }
+        .profile-pic {
+            float: right;
+            border-radius: 50%;
+            margin: 0 0 10px 10px;
+            border: 3px solid #2e8b57;
+            width: 100px; /* Reduced size */
+        }
+        ul {
+            list-style-type: square;
+            padding-left: 20px;
+        }
+        ul li {
+            margin-bottom: 10px;
+        }
+        .section {
+            margin-bottom: 20px; /* Reduced margin */
+        }
+        p {
+            line-height: 1.4; /* Reduced line height */
+        }
+        .contact-info {
+            font-size: 1em;
+        }
+        .form-group {
+            margin-bottom: 10px; /* Reduced margin */
+        }
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 6px; /* Reduced padding */
+            border: 1px solid #cccccc;
+            border-radius: 4px;
+        }
+        .form-group input[type="submit"] {
+            background-color: #2e8b57;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 1em;
+            padding: 6px 12px; /* Reduced padding */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>My Bio Data</h1>
+        <img src="C:\Mobile storage module\documents\IMG-20230514-WA0001.jpg" alt="Profile Picture" class="profile-pic" width="150">
+        <form id="bioDataForm">
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="dob">Date of Birth:</label>
+                <input type="date" id="dob" name="dob" required>
+            </div>
+            <div class="form-group">
+                <label for="address">Address:</label>
+                <textarea id="address" name="address" rows="3" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="phone">Phone:</label>
+                <input type="tel" id="phone" name="phone" required>
+            </div>
+            <div class="form-group">
+                <label for="qualification">Qualification:</label>
+                <textarea id="qualification" name="qualification" rows="3" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="work-experience">Work Experience:</label>
+                <textarea id="work-experience" name="work-experience" rows="3" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="hobbies">Hobbies:</label>
+                <textarea id="hobbies" name="hobbies" rows="3" required></textarea>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Submit">
+            </div>
+        </form>
+        <div id="output"></div>
+    </div>
+
+    <script>
+        document.getElementById('bioDataForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const name = document.getElementById('name').value;
+            const dob = document.getElementById('dob').value;
+            const address = document.getElementById('address').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const qualification = document.getElementById('qualification').value;
+            const workExperience = document.getElementById('work-experience').value;
+            const hobbies = document.getElementById('hobbies').value;
+
+            const output = `
+                <div class="section">
+                    <h2>Personal Information</h2>
+                    <p><strong>Name:</strong> ${name}</p>
+                    <p><strong>Date of Birth:</strong> ${dob}</p>
+                    <p><strong>Address:</strong> ${address}</p>
+                </div>
+                <div class="section">
+                    <h2>Qualification</h2>
+                    <p>${qualification}</p>
+                </div>
+                <div class="section">
+                    <h2>Work Experience</h2>
+                    <p>${workExperience}</p>
+                </div>
+                <div class="section">
+                    <h2>Hobbies</h2>
+                    <p>${hobbies}</p>
+                </div>
+                <div class="section contact-info">
+                    <h2>Contact Information</h2>
+                    <p><strong>Email:</strong> ${email}</p>
+                    <p><strong>Phone:</strong> ${phone}</p>
+                </div>
+            `;
+            document.getElementById('output').innerHTML = output;
+        });
+    </script>
+</body>
+</html>
